@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+  <title>Node Express API</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div class="wrapper container-fluid">
+      <header class="jumbotron text-center">
+        <% include ../partials/navbar %>
+        <h3>Student Detail</h3>
+      </header>
+      <main class="container">
+        <div>
+          <% if(student) { %>
+          <h3 class="student-name"><%= student.name.toUpperCase() %></h3>
+          <p>Country: <%= student.country %></p>
+          <p>Age: <%= student.age %></p>
+          <p>Bio: <br /> <%= student.bio %></p>
+          <div class="icons">
+            <div>
+              <a href="/edit-student/<%= student._id %>" class="btn btn-primary"><i class="far fa-edit"></i></a>
+            </div>
+            <div>
+              <a href="/api/v1.0/students/<%= student._id %>/delete" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+            </div>
+            
+            
+          </div>
+          <% } %>
+        </div>
+
+      </main>
+      <!-- footer -->
+      
+      <% include ../partials/footer %>
+    </div>
+   
+  </body>
+</html>
